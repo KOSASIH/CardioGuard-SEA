@@ -29,4 +29,27 @@ def get_device(device_id):
 @devices.route('/<int:device_id>', methods=['PUT'])
 @jwt_required()
 @validate_request_data(Device.schema)
-def update_
+def update_device(device_id):
+    data = request.get_json()
+    user_id = get_jwt_identity()
+    device = Device.query.get_or_404(device_id)
+
+    if device.user_id != user_id:
+        return jsonify({'message': 'Unauthorized'}), 401
+
+    device.update(**data)
+
+    return jsonify({'message': 'Device updated successfully'}), 200
+
+@devices.route('/<int:device_id>', methods=['DELETE'])
+@jwt_required()
+def delete_device(device_id):
+    user_id = get_jwt_identity()
+    device = Device.query.get_or_404(device_id)
+
+    if device.user_id != user_id:
+        return jsonify({'message': 'Unauthorized'}), 401
+
+    device.delete()
+
+    return jsonify({'message': 'Device deleted successfully'}), 200

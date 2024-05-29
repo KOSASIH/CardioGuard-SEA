@@ -6,6 +6,7 @@ This repository contains the source code for the CardioGuard iOS app.
 
 The project follows a standard structure for iOS apps developed using Swift. Here's a brief overview of the project structure:
 
+```
 CardioGuard
 ├── CardioGuard
 │   ├── Views
@@ -29,7 +30,7 @@ CardioGuard
 │   │   └── LaunchScreen.storyboard
 │   └── CardioGuard.xcworkspace
 └── README.md
-
+```
 # Getting Started
 
 To get started with the project, follow these steps:

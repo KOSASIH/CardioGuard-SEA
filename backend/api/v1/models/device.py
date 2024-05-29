@@ -1,60 +1,35 @@
-from datetime import datetime
-from typing import List
-
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 class Device(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    ip_address = db.Column(db.String(15), nullable=False)
 
-    def __init__(self, name: str, user_id: int):
-        self.name = name
+    def __init__(self, user_id, name, ip_address):
         self.user_id = user_id
-
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self, name: str):
         self.name = name
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    def get_health_data(self) -> List['HealthData']:
-        return HealthData.query.filter_by(device_id=self.id).all()
-
-class HealthData(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    value = db.Column(db.Float, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    device_id = db.Column(db.Integer, db.ForeignKey('device.id'), nullable=False)
-
-    def __init__(self, value: float, device_id: int):
-        self.value = value
-        self.device_id = device_id
+        self.ip_address = ip_address
 
     def save(self):
         db.session.add(self)
         db.session.commit()
 
-    def update(self, value: float):
-        self.value = value
+    def update(self, **kwargs):
+        for attr, value in kwargs.items():
+            setattr(self, attr, value)
         db.session.commit()
 
     def delete(self):
         db.session.delete(self)
         db.session.commit()
 
-class MachineLearningModel:
-    def fit(self, health_data: List['HealthData']):
-        pass
-
-    def predict(self, health_data: List['HealthData']):
-        pass
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'name': self.name,
+            'ip_address': self.ip_address
+               }

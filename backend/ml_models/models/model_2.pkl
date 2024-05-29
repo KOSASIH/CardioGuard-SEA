@@ -1,0 +1,10 @@
+import joblib
+
+# Load the model
+model = joblib.load('model_1.pkl')
+
+# Example usage
+X_new = [[7, 8], [9, 10]]
+y_new = model.predict(X_new)
+
+print(y_new)

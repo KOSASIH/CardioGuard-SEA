@@ -1,0 +1,10 @@
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-Marshmallow==0.13.0
+Flask-Cors==3.0.10
+SQLAlchemy==1.4.23
+marshmallow==3.13.0
+pyodbc==4.0.30
+scikit-learn==0.24.2
+pandas==1.2.4
+numpy==1.21.0

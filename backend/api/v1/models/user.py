@@ -6,10 +6,12 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, name):
         self.email = email
         self.password = password
+        self.name = name
 
     def save(self):
         db.session.add(self)
@@ -28,5 +30,5 @@ class User(db.Model):
         return {
             'id': self.id,
             'email': self.email,
-            'password': self.password
-        }
+            'name': self.name
+    }

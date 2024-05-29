@@ -1,0 +1,17 @@
+include ':app'
+include ':backend'
+include ':models'
+include ':utils'
+include ':ml_models'
+include ':docker'
+include ':mobile:android'
+
+// Include the composite build for my-utils
+includeBuild('../my-utils')
+
+// Set the project name
+rootProject.name = 'CardioGuard-SEA'
+
+// Define the project structure
+setBinding(new Binding([gradle: this]))
+evaluate(new File(rootDir, 'cardioguard-sea.gradle'))

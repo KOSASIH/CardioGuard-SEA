@@ -1,0 +1,12 @@
+# dependencies
+env
+bin
+*.pyc
+
+# Docker stuff
+.docker
+*.dockercfg
+*.dockerfile
+Dockerfile
+docker-compose.yml
+docker-machine.sh

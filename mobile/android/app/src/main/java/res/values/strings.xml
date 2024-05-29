@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CardioGuard</string>
+    <string name="health_data_title">Health Data</string>
+    <string name="machine_learning_title">Machine Learning</string>
+    <string name="input_data_label">Input Data:</string>
+    <string name="run_model_button_text">Run Model</string>
+    <string name="result_text">Result:</string>
+    <string name="health_data_loading">Loading...</string>
+    <string name="machine_learning_loading">Running model...</string>
+</resources>

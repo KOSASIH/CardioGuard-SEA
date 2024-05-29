@@ -1,4 +1,5 @@
 # CardioGuard-SEA
+
 This repository contains the source code and documentation for the CardioGuard SEA project. It includes the backend server code, machine learning models, mobile application code, and wearable device firmware. The repository is organized into several modules, each with its own set of documentation and guidelines for contribution. Contributors are encouraged to follow the project's coding standards and best practices to ensure the quality and maintainability of the codebase. The repository also includes a detailed roadmap outlining the project's development milestones and future plans.
 
 # CardioGuard-SEA
@@ -50,4 +51,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For any questions or concerns, please contact us at contact@example.com.
+For any questions or concerns, please contact us at contact@cardioguard.com.
